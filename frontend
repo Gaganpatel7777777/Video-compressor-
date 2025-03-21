@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +46,7 @@
             </h1>
             <p class="mt-2 text-gray-300">
                 Here we made a compressor using FFmpeg technology to compress your video without any quality loss! <br>
-                Our compressor reduces your video size by 30 to 50% of the original size.
+                Our compressor reduces your video size upto 50% of the original size.
             </p>
         </div>
         <div class="mt-4 flex flex-col items-center">
