@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,13 +40,14 @@
         GD Video Compressor
     </header>
     <div class="flex-grow flex flex-col items-center mt-6">
+        <img src="https://raw.githubusercontent.com/Gaganpatel7777777/Video-compressor-/1720dbe8ed7fc730c6c76faecc6648053feca34e/videoimg.png?raw=true" alt="Your Image" class="w-1/12 h-auto rounded-lg shadow-lg mr-8">
         <div class="text-center text-white max-w-lg p-6">
             <h1 class="text-3xl font-bold border-2 border-white px-4 py-2 inline-block rounded-lg">
                 Compress Your Video <br> with no quality loss!
             </h1>
             <p class="mt-2 text-gray-300">
                 Here we made a compressor using FFmpeg technology to compress your video without any quality loss! <br>
-                Our compressor reduces your video size upto 50% of the original size.
+                Our compressor reduces your video size by 30 to 50% of the original size.
             </p>
         </div>
         <div class="mt-4 flex flex-col items-center">
