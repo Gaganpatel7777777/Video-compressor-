@@ -51,17 +51,61 @@
             </p>
         </div>
         <div class="mt-4 flex flex-col items-center">
-            <button class="relative bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3 px-8 rounded-full text-lg flex items-center gap-2 shadow-lg 
+            <input type="file" id="fileInput" class="hidden" />
+            <button id="uploadButton" class="relative bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3 px-8 rounded-full text-lg flex items-center gap-2 shadow-lg 
             before:content-[''] before:absolute before:inset-0 before:rounded-full before:border-4 before:border-blue-400 before:blur-md before:opacity-50 hover:before:opacity-100 transition-all">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 12l8-8m0 0l8 8m-8-8v16" />
                 </svg>
                 UPLOAD
             </button>
-            <button class="mt-4 bg-gradient-to-r from-blue-300 to-purple-400 text-white font-bold py-3 px-8 rounded-full text-lg shadow-md neon-button">
+            <button id="compressButton" class="mt-4 bg-gradient-to-r from-blue-300 to-purple-400 text-white font-bold py-3 px-8 rounded-full text-lg shadow-md neon-button">
                 Compress My Video
             </button>
         </div>
     </div>
+    <script>
+        let fileUploaded = false;
+
+        document.getElementById('uploadButton').addEventListener('click', function() {
+            document.getElementById('fileInput').click();
+        });
+
+        document.getElementById('fileInput').addEventListener('change', function() {
+            if (this.files.length > 0) {
+                let button = document.getElementById('uploadButton');
+                button.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Uploaded
+                `;
+                button.classList.add('bg-green-500', 'hover:bg-green-600');
+                fileUploaded = true;
+            }
+        });
+
+        document.getElementById('compressButton').addEventListener('click', function() {
+            if (!fileUploaded) return;
+            
+            let button = document.getElementById('compressButton');
+            let dots = 0;
+            button.innerHTML = "Processing";
+            button.disabled = true;
+            let interval = setInterval(() => {
+                dots = (dots + 1) % 4;
+                button.innerHTML = "Processing" + ".".repeat(dots);
+            }, 500);
+            
+            let newTab = window.open('processed_video.mp4', '_blank'); // Replace with actual backend logic
+            let checkTab = setInterval(() => {
+                if (newTab.closed) {
+                    clearInterval(interval);
+                    clearInterval(checkTab);
+                    location.reload();
+                }
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
