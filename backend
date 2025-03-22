@@ -1,0 +1,41 @@
+let fileUploaded = false;
+
+document.getElementById('uploadButton').addEventListener('click', function() {
+    document.getElementById('fileInput').click();
+});
+
+document.getElementById('fileInput').addEventListener('change', function() {
+    if (this.files.length > 0) {
+        let button = document.getElementById('uploadButton');
+        button.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Uploaded
+        `;
+        button.classList.add('bg-green-500', 'hover:bg-green-600');
+        fileUploaded = true;
+    }
+});
+
+document.getElementById('compressButton').addEventListener('click', function() {
+    if (!fileUploaded) return;
+
+    let button = document.getElementById('compressButton');
+    let dots = 0;
+    button.innerHTML = "Processing";
+    button.disabled = true;
+    let interval = setInterval(() => {
+        dots = (dots + 1) % 4;
+        button.innerHTML = "Processing" + ".".repeat(dots);
+    }, 500);
+
+    let newTab = window.open('processed_video.mp4', '_blank'); // Replace with actual backend logic
+    let checkTab = setInterval(() => {
+        if (newTab.closed) {
+            clearInterval(interval);
+            clearInterval(checkTab);
+            location.reload();
+        }
+    }, 1000);
+});
