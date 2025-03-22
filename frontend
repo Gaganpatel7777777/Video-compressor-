@@ -31,6 +31,8 @@
         }
         .neon-button {
             animation: neonGlow 1.5s infinite alternate;
+            border: 2px solid white; 
+            box-shadow: inset 0 0 10px black; 
         }
     </style>
 </head>
@@ -59,7 +61,7 @@
                 </svg>
                 UPLOAD
             </button>
-            <button id="compressButton" class="mt-4 bg-gradient-to-r from-blue-300 to-purple-400 text-white font-bold py-3 px-8 rounded-full text-lg shadow-md neon-button">
+            <button id="compressButton" class="mt-6 bg-gradient-to-r from-blue-300 to-purple-400 text-white font-bold py-3 px-8 rounded-full text-lg shadow-md neon-button">
                 Compress My Video
             </button>
         </div>
