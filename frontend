@@ -62,13 +62,13 @@
             background: linear-gradient(45deg, rgba(8, 8, 56, 0.194), rgba(77, 21, 58, 0.246));
             filter: blur(100px);
             animation: wave 6s infinite alternate ease-in-out;
-        }
+        }        
     </style>
 </head>
 <body class="bg-gradient-to-r from-gray-900 to-black min-h-[150vh] flex flex-col relative">
     <div class="light-effect"></div>
     <div class="wave-background"></div>
-    <header class="w-full text-white py-4 text-center text-2xl font-bold shadow-md custom-font glassmorphism">
+    <header class="w-full text-white py-4 text-center text-2xl font-bold shadow-md custom-font glassmorphism fixed top-0 left-0 z-50" style="box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);">
         GD Video Compressor
     </header>
     <div class="flex-grow flex flex-col items-center mt-6">
